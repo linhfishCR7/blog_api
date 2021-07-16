@@ -9,7 +9,14 @@
     <title>Dashboard - @yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="{{ asset('themes/sb-admin/css/styles.css')}}" rel="stylesheet" />
+    <!-- Các css dành cho thư viện bootstrap-fileinput -->
+    <link href="{{ asset('vendor/bootstrap-fileinput/css/fileinput.css') }}" media="all" rel="stylesheet" type="text/css" />
+    {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous"> --}}
+    <link href="{{ asset('vendor/bootstrap-fileinput/themes/explorer-fas/theme.css') }}" media="all" rel="stylesheet" type="text/css" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}" ></script>
+
 </head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -60,6 +67,21 @@
                                 </a>
                                 <a class="nav-link collapsed" href="{{URL::to('all-categories')}}">
                                     All Categories
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-fw fa-folder"></i></div>
+                            Blog Post
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="{{URL::to('get-blog-post-form')}}">
+                                    Create Blog Post
+                                </a>
+                                <a class="nav-link collapsed" href="{{URL::to('all-blog-post')}}">
+                                    All Blog Post
                                 </a>
                             </nav>
                         </div>
@@ -114,6 +136,17 @@
     <script src="{{ asset('themes/sb-admin/js/datatables-simple-demo.js')}}"></script>
     <!-- Optional JavaScript -->
     <script src="{{ asset('vendor/sweetalert2/sweetalert.js') }}"></script>
+    <!-- Các script dành cho thư viện bootstrap-fileinput -->
+    <script src="{{ asset('vendor/bootstrap-fileinput/js/plugins/sortable.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendor/bootstrap-fileinput/js/fileinput.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendor/bootstrap-fileinput/js/locales/vi.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendor/bootstrap-fileinput/themes/fas/theme.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendor/bootstrap-fileinput/themes/explorer-fas/theme.js') }}" type="text/javascript"></script>
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor 4
+        // instance, using default configuration.
+        CKEDITOR.replace('editor1');
+    </script>
     @yield('custom-script')
 </body>
 </html>

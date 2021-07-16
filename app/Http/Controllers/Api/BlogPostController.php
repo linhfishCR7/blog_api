@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\BlogPost;
 
 class BlogPostController extends Controller
 {
@@ -14,7 +15,7 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        //
+        return BlogPost::all();
     }
 
     /**

@@ -24,7 +24,7 @@ Create Category
     @csrf
     <div class="mb-3">
         <label for="categoryName" class="form-label">Category Name</label>
-        <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Enter Category Name">
+        <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Enter Category Name" value="{{ old('categoryName')}}">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
